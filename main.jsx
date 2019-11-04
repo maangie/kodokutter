@@ -1,5 +1,5 @@
 function App() {
-  const tweets = [
+  const [tweets, set_tweets] = React.useState([
     {
       id: 0,
       icon: '\u{1F431}',
@@ -14,10 +14,15 @@ function App() {
       account_name: 'kokoro',
       content: '私はその人を常に先生と呼んでいた。だからここでもただ先生と書くだけで本名は打ち明けない。'
     }
-  ];
+  ]);
+
+  const add_tweet =
+    React.useCallback(tweet => set_tweets(prev => [tweet, ...prev]),
+                      [set_tweets]);
 
   return (
     <div>
+      <TweetInput add_tweet={add_tweet} />
       <Timeline tweets={tweets} />
     </div>
   );
