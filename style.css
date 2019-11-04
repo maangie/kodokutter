@@ -31,3 +31,10 @@ body {
 .account_name {
   color: gray;
 }
+
+.status_action span {
+  color: red;
+}
+.status_action span:hover {
+  cursor: pointer;
+}
